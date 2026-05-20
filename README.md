@@ -52,3 +52,13 @@ Los dos problemas más graves en contratos son los **9 errores de accesibilidad*
 Si hablamos de la transparencia de la web, esta página no obliga al usuario a aceptar cookies no esenciales ni recurre a patrones oscuros para acondicionarlo.
 
 En cuanto a los datos innecesarios, el registro únicamente requiere el correcto electrónica y su contraseña, con opción de acceso a Google en este caso, pero sin solicitar datos personales adicionales como el numero de telefono o la direccion.
+
+
+### **FASE 4: Propuesta de Refactorización (Green Coding)**
+Una vez visto el código de la web, he visto varias cosas que puedo corregir para que sea más sostenible el código y la página web para el usuario. 
+
+En la parte de la **optimización de activos**, convertiría las imágenes actuales (.jpg) al formato **.WebP**, ya que este reduce el tamaño un 70% sin pérdida de calidad. Además, implementaría **Lazy Loading** para que solo carguen al entrar en el campo de visión del usuario, eliminando transferencias de datos completamente innecesarias.
+
+En la parte de la **reducción de peticiones**, el problema que existe es que los scripts consumen mucho, entonces debería optimizar su carga. Para ello, pienso que se deberían cargar cada script de manera diferida para que no bloqueen la carga inicial de la página, y así reducir el número de publicidades activas de forma simultánea. Con esto reducimos significativamente el impacto ambiental y consumiría menos recursos, ya que, por ejemplo, el script que más pesa es pbex.js con **149 kB** de un sistema de pujas publicitarias.
+
+Por último, según la **Paradoja de Jevons**, si la web carga más rápido, atraerá más visitas, pudiendo aumentar el consumo energético total y anular el ahorro logrado. Para evitar eso, combina la optimización técnica con el alojamiento en servidores de energía renovable, de modo que el crecimiento del tráfico no implique mayor impacto ambiental.
