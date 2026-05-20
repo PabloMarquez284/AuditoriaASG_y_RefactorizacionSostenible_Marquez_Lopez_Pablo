@@ -46,3 +46,9 @@ Los dos problemas más graves en contratos son los **9 errores de accesibilidad*
 
 - Los **problemas de accesibilidad** son probablemente por imágenes sin atributo ***alt*** o formularios sin etiquetas lo que impide que los lectores transmitan correctamente el contenido a personas con discapacidad visual.  
 - Los **problemas de contraste**, que son más del doble, es causado por numerosos elementos de texto no tienen suficiente contraste con el fondo, lo que dificulta o impide de su lectura a personas con baja visión o con algún problema de visión-.
+
+
+### **FASE 3: Dimensión de Gobernanza y Ética (G)**
+Si hablamos de la transparencia de la web, esta página no obliga al usuario a aceptar cookies no esenciales ni recurre a patrones oscuros para acondicionarlo.
+
+En cuanto a los datos innecesarios, el registro únicamente requiere el correcto electrónica y su contraseña, con opción de acceso a Google en este caso, pero sin solicitar datos personales adicionales como el numero de telefono o la direccion.
