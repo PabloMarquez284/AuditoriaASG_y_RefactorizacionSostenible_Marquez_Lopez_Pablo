@@ -13,7 +13,7 @@ Por una parte, la huella de carbono estimada por visita de esta página web es d
 
 He conseguido este dato gracias a la herramienta gratuita ***Website Carbon Calculator**.*
 
-<img width="1215" height="668" alt="image" src="https://github.com/user-attachments/assets/7fa01a92-b79a-4757-a149-c72bff48d08b" />
+<img width="1215" height="668" alt="ResultadosWCC" src="https://github.com/user-attachments/assets/7fa01a92-b79a-4757-a149-c72bff48d08b" />
 
 
 Por otra parte, inspeccionando la pestaña ***Network*** de las herramientas de desarrollador del navegador, los 3 recursos más pesados que se descargan al abrir la página son:
@@ -26,7 +26,7 @@ Estos tres recursos son scripts de **JavaScript** y una imagen en formato **PNG*
 
 En esta imagen podemos ver los recursos más pesados de la página web, aunque hay muchos más.
 
-<img width="448" height="710" alt="image" src="https://github.com/user-attachments/assets/397855a0-7719-494e-9cae-9dacaea234fe" />
+<img width="448" height="710" alt="ResultadosNetwork" src="https://github.com/user-attachments/assets/397855a0-7719-494e-9cae-9dacaea234fe" />
 
 
 Una vez analizado el peso y el consumo de la página web, podemos llegar a la conclusión de que está web consume mucho más de lo que debería, llegando a sufrir una “**inflación de software**”. Como hemos podido ver en la imagen anterior, la página web genera **405 solicitudes** y **carga 16,6 MB** de recursos en total, una cifra muy por encima de lo recomendable.   
@@ -37,7 +37,7 @@ Por todo esto, podemos tomar consciencia de que la **sostenibilidad digital** es
 Para ver la accesibilidad de la página web, hacemos uso de ***WAVE Web Accessibility Evaluation Tool***. Al ver los resultados, podemos ver que dicha página obtiene una puntuación de 4,6 sobre 10, lo que indica un nivel de accesibilidad deficiente.
 
 Los datos que se reflejan en la imagen son preocupantes, ya que la página presenta 9 errores de accesibilidad, 22 errores de constante y 37 alertas. Esto da a entender que no cumple con los estándares mínimos de accesibilidad web.
-<img width="376" height="479" alt="image" src="https://github.com/user-attachments/assets/f58881b9-f039-4ce0-836d-ed841e92ef73" />
+<img width="376" height="479" alt="ResultadosWAVE" src="https://github.com/user-attachments/assets/f58881b9-f039-4ce0-836d-ed841e92ef73" />
 
 
 Los dos problemas más graves en contratos son los **9 errores de accesibilidad** y los **22 errores de contraste**.s
