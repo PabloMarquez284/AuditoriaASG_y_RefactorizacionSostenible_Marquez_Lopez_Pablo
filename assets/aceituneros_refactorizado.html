@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ACEITUNEROS DE SALTERAS SL - Expansión</title>
+        <style>
+            /* === ESTILOS GENERALES === */
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { font-family: Arial, sans-serif; font-size: 14px; color: #333; background: #f4f4f4; }
+            a { color: #005a9e; text-decoration: none; }
+            a:hover { text-decoration: underline; color: #003d6e; }
+
+            /* === CABECERA === */
+            header { background: #fff; border-bottom: 3px solid #003366; padding: 10px 20px; display: flex; flex-direction: column; }
+            .logo-expansion { height: 45px; }
+            .cabecera-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+            .cabecera-top form { display: flex; gap: 6px; }
+            .cabecera-top input[type="text"] { padding: 5px 10px; border: 1px solid #ccc; font-size: 13px; width: 200px; }
+            .cabecera-top input[type="submit"] { padding: 5px 12px; background: #003366; color: #fff; border: none; cursor: pointer; font-size: 13px; }
+            .cabecera-top .btn-login { background: #003366; color: #fff; padding: 6px 14px; font-size: 13px; }
+            .redes-sociales { display: flex; gap: 8px; align-items: center; }
+            .redes-sociales img { width: 24px; height: 24px; }
+
+            /* === NAVEGACIÓN PRINCIPAL === */
+            nav.menu-principal { background: #003366; }
+            nav.menu-principal ul { list-style: none; display: flex; flex-wrap: wrap; }
+            nav.menu-principal ul li a { display: block; padding: 10px 14px; color: #fff; font-size: 13px; font-weight: bold; text-transform: uppercase; }
+            nav.menu-principal ul li a:hover { background: #005a9e; text-decoration: none; }
+
+            /* === MIGAS DE PAN === */
+            nav.migas { background: #eee; padding: 6px 20px; font-size: 12px; }
+            nav.migas ol { list-style: none; display: flex; gap: 6px; }
+            nav.migas ol li::after { content: " >"; color: #999; }
+            nav.migas ol li:last-child::after { content: ""; }
+
+            /* === PUBLICIDAD (reducida a una sola franja) === */
+            .publicidad-banner { background: #e8e8e8; text-align: center; padding: 10px; font-size: 12px; color: #888; border-bottom: 1px solid #ccc; }
+
+            /* === CONTENIDO PRINCIPAL === */
+            main { max-width: 1000px; margin: 20px auto; display: flex; gap: 20px; padding: 0 10px; }
+
+            /* === COLUMNA IZQUIERDA === */
+            .col-izquierda { flex: 2; }
+            .cabecera-ficha { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+            .cabecera-ficha h1 { font-size: 20px; color: #003366; }
+            .cabecera-ficha img { height: 30px; }
+
+            article.ficha { background: #fff; border: 1px solid #ddd; padding: 16px; margin-bottom: 16px; }
+            article.ficha h2 { font-size: 15px; color: #003366; border-bottom: 2px solid #003366; padding-bottom: 6px; margin-bottom: 12px; }
+
+            table.datos { width: 100%; border-collapse: collapse; }
+            table.datos tr { border-bottom: 1px solid #eee; }
+            table.datos td { padding: 7px 10px; font-size: 13px; }
+            table.datos td:first-child { font-weight: bold; width: 40%; color: #555; }
+
+            /* === TABLA INFORMES === */
+            table.informes { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 10px; }
+            table.informes th { background: #003366; color: #fff; padding: 8px; text-align: center; }
+            table.informes td { padding: 6px 8px; border-bottom: 1px solid #eee; text-align: center; }
+            table.informes td:first-child { text-align: left; }
+            .positiva { color: #1a6e1a; font-weight: bold; }
+            .negativa { color: #9b0000; font-weight: bold; }
+
+            .btn-acceder { display: inline-block; background: #003366; color: #fff; padding: 6px 14px; margin: 4px; font-size: 12px; }
+            .btn-acceder:hover { background: #005a9e; text-decoration: none; color: #fff; }
+            .nota { font-size: 11px; color: #777; margin-top: 10px; }
+
+            /* === BARRA LATERAL === */
+            aside { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+            aside section { background: #fff; border: 1px solid #ddd; padding: 14px; }
+            aside section h2 { font-size: 14px; color: #003366; border-bottom: 2px solid #003366; padding-bottom: 5px; margin-bottom: 10px; }
+            aside section p.sector { font-size: 12px; color: #777; margin-bottom: 8px; text-transform: uppercase; }
+            aside section ol { padding-left: 18px; font-size: 12px; }
+            aside section ol li { padding: 4px 0; border-bottom: 1px solid #eee; }
+            .ver-mas { text-align: right; margin-top: 8px; font-size: 12px; }
+
+            /* Buscador lateral */
+            .buscador-lateral input[type="text"] { width: 100%; padding: 6px; border: 1px solid #ccc; font-size: 13px; margin-bottom: 6px; }
+            .buscador-lateral input[type="submit"] { background: #003366; color: #fff; border: none; padding: 6px 14px; cursor: pointer; font-size: 13px; }
+
+            /* === BANNER COOKIES === */
+            dialog#banner-cookies {
+                position: fixed; bottom: 0; left: 0; right: 0; top: auto;
+                width: 100%; max-width: 100%; margin: 0;
+                background: #fff; border: none; border-top: 3px solid #003366;
+                padding: 14px 24px; display: flex; align-items: center;
+                justify-content: space-between; gap: 16px; z-index: 9999;
+                font-size: 13px;
+            }
+            dialog#banner-cookies .btn-cookies {
+                padding: 9px 18px; font-size: 13px; cursor: pointer;
+                border: 2px solid #003366; border-radius: 3px;
+            }
+            dialog#banner-cookies .btn-rechazar { background: #fff; color: #003366; }
+            dialog#banner-cookies .btn-aceptar { background: #003366; color: #fff; }
+
+            /* === PIE DE PÁGINA === */
+            footer { background: #003366; color: #ccc; padding: 20px; margin-top: 30px; }
+            footer nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
+            footer nav ul li a { color: #ccc; font-size: 12px; }
+            footer nav ul li a:hover { color: #fff; }
+            footer p { font-size: 11px; color: #aaa; margin-top: 8px; }
+        </style>
+    </head>
+    <body>
+
+        <!-- CABECERA -->
+        <header>
+            <div class="cabecera-top">
+                <a href="https://www.expansion.com/" title="Ir a la portada de Expansión">
+                    <img class="logo-expansion"
+                         src="logo_expansion_noticia.webp"
+                         alt="Logotipo de Expansión"
+                         loading="lazy">
+                </a>
+                <div style="display:flex; gap:16px; align-items:center;">
+                    <form action="https://cgi.expansion.com/buscador/archivo_expansion.html" method="get" role="search">
+                        <input type="text" name="q" placeholder="Buscar...">
+                        <input type="submit" value="Buscar">
+                    </form>
+                    <a class="btn-login" href="https://seguro.expansion.com/registro/v2/index.html" target="_blank">Iniciar sesión</a>
+                    <nav aria-label="Redes sociales de Expansión">
+                        <ul class="redes-sociales" style="list-style:none; display:flex; gap:8px;">
+                            <li>
+                                <a href="http://www.facebook.com/expansioncom" aria-label="Síguenos en Facebook">
+                                    <img src="icono_facebook_cabecera.webp"
+                                         alt="Facebook" loading="lazy" width="24" height="24">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://twitter.com/expansioncom" aria-label="Síguenos en Twitter">
+                                    <img src="icono_twitter_cabecera.webp"
+                                         alt="Twitter" loading="lazy" width="24" height="24">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/company/expansi-n" aria-label="Síguenos en LinkedIn">
+                                    <img src="icono_linkedin_cabecera.webp"
+                                         alt="LinkedIn" loading="lazy" width="24" height="24">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- MENÚ PRINCIPAL -->
+            <nav class="menu-principal" aria-label="Menú principal">
+                <ul>
+                    <li><a href="https://www.expansion.com/mercados.html">Mercados</a></li>
+                    <li><a href="https://www.expansion.com/ahorro.html">Ahorro</a></li>
+                    <li><a href="https://www.expansion.com/empresas.html">Empresas</a></li>
+                    <li><a href="https://www.expansion.com/economia.html">Economía</a></li>
+                    <li><a href="https://www.expansion.com/expansion-empleo.html">Expansión &amp; Empleo</a></li>
+                    <li><a href="https://www.expansion.com/juridico.html">Jurídico</a></li>
+                    <li><a href="https://www.expansion.com/tecnologia.html">Tecnología</a></li>
+                    <li><a href="https://www.expansion.com/opinion.html">Opinión</a></li>
+                    <li><a href="https://www.expansion.com/directivos.html">Directivos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- MIGAS DE PAN -->
+        <nav class="migas" aria-label="Ruta de navegación">
+            <ol>
+                <li><a href="https://www.expansion.com/directorio-empresas.html">Directorio de empresas</a></li>
+                <li><a href="https://www.expansion.com/empresas-de/agricultura/index.html">Agricultura</a></li>
+                <li><a href="https://www.expansion.com/empresas-de/agricultura/granos-sc/index.html">Granos SC</a></li>
+            </ol>
+        </nav>
+
+        <!-- PUBLICIDAD: reducida a una sola red -->
+        <div class="publicidad-banner" aria-label="Publicidad">
+            [ Publicidad ]
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main>
+
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="col-izquierda">
+                <div class="cabecera-ficha">
+                    <h1>ACEITUNEROS DE SALTERAS SL</h1>
+                    <a href="https://www.axesor.es/" target="_blank" rel="sponsored noopener">
+                        <img src="https://e01-expansion.uecdn.es/assets/desktop/master/img/powered_by_axesor.webp"
+                             alt="Información proporcionada por Axesor"
+                             loading="lazy" height="30">
+                    </a>
+                </div>
+
+                <!-- DATOS DE LA EMPRESA -->
+                <article class="ficha">
+                    <h2>Datos de la empresa</h2>
+                    <table class="datos">
+                        <tbody>
+                            <tr><td>Nombre de la empresa</td><td>ACEITUNEROS DE SALTERAS SL</td></tr>
+                            <tr><td>Nº de empleados</td><td>De 0 a 10</td></tr>
+                            <tr><td>Facturación</td><td>&gt; 2.500.000 €</td></tr>
+                            <tr><td>Forma jurídica</td><td>Sociedad Limitada</td></tr>
+                            <tr><td>CIF y más información</td>
+                                <td><a href="https://www.axesor.es/Informes-Empresas/1195321/ACEITUNEROS_DE_SALTERAS_SL.html" target="_blank" rel="nofollow">Toda la información sobre ACEITUNEROS DE SALTERAS SL</a></td>
+                            </tr>
+                            <tr><td>Sector</td><td>Agricultura, ganadería, silvicultura y pesca</td></tr>
+                            <tr><td>Dirección</td><td>Hermanos Machado, Nº 51</td></tr>
+                            <tr><td>Tamaño</td><td>Microempresa</td></tr>
+                            <tr><td>Fecha de constitución</td><td>26/12/1997</td></tr>
+                            <tr><td>Actividad</td><td>Cultivos no perennes</td></tr>
+                            <tr><td>CNAE</td><td>11</td></tr>
+                            <tr><td>Capital social</td><td>10.000 € - 50.000 €</td></tr>
+                            <tr><td>Último cambio</td><td>13/06/2020</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="nota">Información proporcionada por ©Axesor Conocer para Decidir. S.A.</p>
+                </article>
+
+                <!-- INFORMES RECOMENDADOS -->
+                <article class="ficha">
+                    <h2>Informes recomendados sobre la empresa</h2>
+                    <table class="informes">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Informe de Crédito</th>
+                                <th>Informe Mercantil</th>
+                                <th>Perfil Comercial</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Capital social y evolución</td><td class="positiva">Sí</td><td class="positiva">Sí</td><td class="positiva">Sí</td></tr>
+                            <tr><td>Información mercantil</td><td class="positiva">Sí</td><td class="positiva">Sí</td><td class="positiva">Básica</td></tr>
+                            <tr><td>Ejecutivos y directivos</td><td class="positiva">Sí</td><td class="positiva">Solo Ejecutivos</td><td class="positiva">Solo Directivos</td></tr>
+                            <tr><td>Empresas vinculadas</td><td class="positiva">Sí</td><td class="positiva">Sí</td><td class="negativa">No</td></tr>
+                            <tr><td>Incidencias judiciales</td><td class="positiva">Sí</td><td class="positiva">Sí</td><td class="negativa">No</td></tr>
+                            <tr><td>Calificación de crédito</td><td class="positiva">Sí</td><td class="negativa">No</td><td class="negativa">No</td></tr>
+                            <tr><td>Balance y cuenta de resultados</td><td class="positiva">Sí</td><td class="negativa">No</td><td class="negativa">No</td></tr>
+                        </tbody>
+                    </table>
+                    <div style="margin-top:12px;">
+                        <a class="btn-acceder" href="https://www.axesor.es/ccs/comprar/servicio/empresa/57/1195321?cd=3" target="_blank" rel="nofollow">» Acceder</a>
+                        <a class="btn-acceder" href="https://www.axesor.es/ccs/comprar/servicio/empresa/93/1195321?cd=3" target="_blank" rel="nofollow">» Acceder</a>
+                        <a class="btn-acceder" href="https://www.axesor.es/ccs/comprar/servicio/empresa/38/1195321?cd=3" target="_blank" rel="nofollow">» Acceder</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- BARRA LATERAL -->
+            <aside aria-label="Contenido relacionado">
+
+                <!-- BUSCADOR -->
+                <section aria-labelledby="titulo-buscador">
+                    <h2 id="titulo-buscador">Buscador de empresas</h2>
+                    <div class="buscador-lateral">
+                        <form action="https://www.expansion.com/empresas-de/buscadorEmpresas.html" method="get" role="search">
+                            <input type="text" name="qe" placeholder="Introduzca nombre...">
+                            <input type="submit" value="Buscar">
+                        </form>
+                    </div>
+                </section>
+
+                <!-- RANKING -->
+                <section aria-labelledby="titulo-ranking">
+                    <h2 id="titulo-ranking">Ranking facturación del sector</h2>
+                    <p class="sector">Agricultura</p>
+                    <ol>
+                        <li><a href="https://www.expansion.com/directorio-empresas/fabrica-de-piensos-compuestos-crens-f-4-sa_635538_A01_41.html">FABRICA DE PIENSOS COMPUESTOS CRENS F 4 SA</a></li>
+                        <li><a href="https://www.expansion.com/directorio-empresas/fall-creek-farm-nursery-europe-srl_8374779_A01_41.html">FALL CREEK FARM &amp; NURSERY EUROPE SRL</a></li>
+                        <li><a href="https://www.expansion.com/directorio-empresas/amarillo-corn-sl_846898_A01_41.html">AMARILLO CORN SL</a></li>
+                        <li><a href="https://www.expansion.com/directorio-empresas/artealca-sociedad-limitada_7697388_A01_41.html">ARTEALCA SOCIEDAD LIMITADA</a></li>
+                        <li><a href="https://www.expansion.com/directorio-empresas/contagri-sl_3042551_A01_41.html">CONTAGRI SL</a></li>
+                    </ol>
+                    <div class="ver-mas">
+                        <a href="https://www.expansion.com/empresas-de/agricultura/sevilla/ranking/">Ver ranking completo</a>
+                    </div>
+                </section>
+
+                <!-- COMPETENCIA -->
+                <section aria-labelledby="titulo-competencia">
+                    <h2 id="titulo-competencia">Competencia de ACEITUNEROS DE SALTERAS SL</h2>
+                    <ol>
+                        <li><a href="https://www.expansion.com/directorio-empresas/fabrica-de-piensos-compuestos-crens-f-4-sa_635538_A01_41.html">FABRICA DE PIENSOS COMPUESTOS CRENS F 4 SA</a> — Utrera</li>
+                        <li><a href="https://www.expansion.com/directorio-empresas/agricola-lopez-campos-sociedad-limitada_7451815_A01_41.html">AGRICOLA LOPEZ CAMPOS SL</a> — Los Palacios</li>
+                        <li><a href="https://www.expansion.com/directorio-empresas/sonura-agriculture-sociedad-limitada_7463979_A01_41.html">SONURA AGRICULTURE SL</a> — Sevilla</li>
+                    </ol>
+                </section>
+
+            </aside>
+        </main>
+
+        <!-- BANNER COOKIES: botones con igual peso visual -->
+        <dialog id="banner-cookies" open aria-labelledby="cookies-titulo" aria-describedby="cookies-desc">
+            <section>
+                <strong id="cookies-titulo">Cookies</strong>
+                <p id="cookies-desc">Usamos cookies propias y de terceros para mejorar tu experiencia. <a href="https://www.expansion.com/cookies.html">Más información</a></p>
+            </section>
+            <nav aria-label="Opciones de cookies" style="display:flex; gap:10px;">
+                <button class="btn-cookies btn-rechazar" onclick="document.getElementById('banner-cookies').style.display='none'">Rechazar no esenciales</button>
+                <button class="btn-cookies btn-aceptar" onclick="document.getElementById('banner-cookies').style.display='none'">Aceptar todas</button>
+            </nav>
+        </dialog>
+
+        <!-- PIE DE PÁGINA: textos legales simplificados -->
+        <footer>
+            <nav aria-label="Otras webs de Unidad Editorial">
+                <ul>
+                    <li><a href="https://www.expansion.com/mercados/indices/ibex35_I.IB.html">Ibex 35</a></li>
+                    <li><a href="https://datosmacro.expansion.com/">Datosmacro</a></li>
+                    <li><a href="https://www.expansion.com/directorio-empresas.html">Directorio de empresas</a></li>
+                    <li><a href="https://www.expansion.com/diccionario-economico.html">Diccionario económico</a></li>
+                    <li><a href="https://www.marca.com/" target="_blank" rel="noopener">Marca</a></li>
+                    <li><a href="https://www.elmundo.es/" target="_blank" rel="noopener">El Mundo</a></li>
+                </ul>
+            </nav>
+            <nav aria-label="Información legal">
+                <ul>
+                    <li><a href="https://www.expansion.com/cookies.html">Política de cookies</a></li>
+                    <li><a href="https://www.expansion.com/corporativo/politica-privacidad.html">Privacidad</a></li>
+                    <li><a href="https://www.expansion.com/corporativo/terminos-condiciones-uso.html">Términos y condiciones</a></li>
+                    <li><a href="https://www.expansion.com/contacto/index.html">Contacto</a></li>
+                    <li><a href="https://www.unidadeditorial.com/publicidad" target="_blank" rel="noopener">Publicidad</a></li>
+                </ul>
+            </nav>
+            <p>© 2026 Unidad Editorial Información Económica S.L.</p>
+        </footer>
+
+        <!-- Scripts no esenciales cargados al final con defer -->
+        <script src="https://www.expansion.com/apw.js?v=2" defer></script>
+        <script src="https://e01-expansion.uecdn.es/assets/desktop/master/js/ue-utils.js" defer></script>
+        <script src="https://e01-expansion.uecdn.es/assets/desktop/master/js/jquery.min.js" defer></script>
+
+    </body>
+</html>
