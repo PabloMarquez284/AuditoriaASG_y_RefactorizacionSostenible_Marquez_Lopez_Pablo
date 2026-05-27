@@ -9,7 +9,6 @@ El enlace a la web es el siguiente: https://www.expansion.com/directorio-empresa
 ## **2\. FASES DE LA AUDITORÍA** 
 
 ### **FASE 1: Inventario y Dimensión Ambiental (A)**
-
 Por una parte, la huella de carbono estimada por visita de esta página web es del 54%, eso significa que cada vez que un usuario visita esta página se emite una cantidad de carbono superior a la media global. Esto refleja una oportunidad de mejora en cuanto a optimización de recursos y sostenibilidad digital.
 
 He conseguido este dato gracias a la herramienta gratuita ***Website Carbon Calculator**.*
@@ -35,7 +34,6 @@ Por todo esto, podemos tomar consciencia de que la **sostenibilidad digital** es
 
 
 ### **FASE 2: Dimensión Social y Equidad (S)**
-
 Para ver la accesibilidad de la página web, hacemos uso de ***WAVE Web Accessibility Evaluation Tool***. Al ver los resultados, podemos ver que dicha página obtiene una puntuación de 4,6 sobre 10, lo que indica un nivel de accesibilidad deficiente.
 
 Los datos que se reflejan en la imagen son preocupantes, ya que la página presenta 9 errores de accesibilidad, 22 errores de constante y 37 alertas. Esto da a entender que no cumple con los estándares mínimos de accesibilidad web.
@@ -61,4 +59,35 @@ En la parte de la **optimización de activos**, convertiría las imágenes actua
 
 En la parte de la **reducción de peticiones**, el problema que existe es que los scripts consumen mucho, entonces debería optimizar su carga. Para ello, pienso que se deberían cargar cada script de manera diferida para que no bloqueen la carga inicial de la página, y así reducir el número de publicidades activas de forma simultánea. Con esto reducimos significativamente el impacto ambiental y consumiría menos recursos, ya que, por ejemplo, el script que más pesa es pbex.js con **149 kB** de un sistema de pujas publicitarias.
 
-Por último, según la **Paradoja de Jevons**, si la web carga más rápido, atraerá más visitas, pudiendo aumentar el consumo energético total y anular el ahorro logrado. Para evitar eso, combina la optimización técnica con el alojamiento en servidores de energía renovable, de modo que el crecimiento del tráfico no implique mayor impacto ambiental.
+Por último, según la **Paradoja de Jevons**, si la web carga más rápido, atraerá más visitas, pudiendo aumentar el consumo energético total y anular el ahorro logrado. Para evitar eso, combina la optimización técnica con el alojamiento en servidores de energía renovable, de modo que el crecimiento del tráfico no implique mayor impacto ambiental.  
+
+## **3\. PROPUESTA DE REFACTORIZACIÓN**
+Tras analizar el código fuente de la empresa, voy a proponer varias mejoras en las diferentes dimensiones explicadas anteriormente. Estas mejoras técnicas permiten reducir su impacto ambiental, mejorar su accesibilidad y reforzar la transparencia hacia el usuario.
+
+### 3.1. Mejoras ambientales (A)
+Analizando el peso y las peticiones de la página, voy a proponer varias optimizaciones para reducir su huella de carbono digital.
+
+* **Optimización de imágenes**: convertir las imágenes a formato WebP, ya que así se reduce el peso hasta un 70%, sin pérdida de calidad y disminuyendo la energía consumida en cada transferencia.   
+* **Peticiones HTTP**: limitar el número de redes publicitarias activas a la vez, ya que actualmente se gestionan más de 10, generando cientos de peticiones innecesarias.  
+* **Lazy loading**: implementar carga diferida en imágenes para que solo se descarguen cuando el usuario las necesita.  
+* **Eliminación de código no utilizado**: cargar primero el contenido principal y luego los scripts de seguimiento (Charbeat, Permutive, Omniture), de modo que el usuario vea el contenido más rápido y consuma menos energía.
+
+### 3.2. Mejoras sociales (S)
+Basándome en los resultados WAVE realizados anteriormente y en las pautas WCAG 2.2 \[1\], la página web presenta barreras de accesibilidad, por lo que a nivel social se podrían mejorar muchas cosas.
+
+* **Uso de HTML semántico**: el código utiliza etiquetas genéricas como es \<div\> en  vez de usar etiquetas modernas y concretas como son \<header\>, \<nav\>, \<main\>, \<section\> y \<footer\>. Esto dificulta la navegación y no le dice al usuario lo que hay dentro de cada sección.  
+* **Atributos alt**: varias imágenes carecen del atributo alt, incumpliendo el principio de perceptibilidad de las WCAG 2.2. Este atributo lo que hace es describir el contenido de la imagen.  
+* **Mejora del contraste**: corregir los 22 errores de contraste que tiene la web detectados por WAVE para cumplir el nivel AA de las WCAG 2.2.  
+* **Navegación accesible**: añadir una etiqueta descriptiva en el código para indicar que es cada elemento. Por ejemplo, que el menú principal se identifique como “menú principal” y no como una simple sección sin nombre.
+
+### 3.3. Mejoras de gobernanza (G)
+* **Consentimiento de cookies transparente**: rediseñar el banner de cookies para que las opciones de aceptar y rechazar tengan el mismo peso visual, eliminado el patrón oscuro actual.  
+* **Simplificación de textos legales**: los textos del pie de página son extensos y técnicos, por lo que vendría bien simplificarlos para que así sea más comprensible para cualquier usuario.  
+* **Eliminación de prácticas engañosas**: retirar el uso de colores y tamaños que dirigen al usuario inconscientemente hacia la aceptación de las cookies.  
+* **Mejora de la privacidad**: reducir el número de servicios de rastreo activos al mínimo necesario, ya que actualmente hay varios como Amazon Ads, Permutive o ChartBeat.
+
+
+## **4\. REFERENCIAS**
+[1] W3C Web Accessibility Initiative (WAI), "Sumario de WCAG 2," *W3C*, 2025\. \[En línea\]. Disponible en: (https://www.w3.org/WAI/standards-guidelines/wcag/es)  
+  
+[2] S. Luján Mora, "Pautas de accesibilidad al contenido web 2.2," *Universidad de Alicante*, 2026\. \[En línea\]. Disponible en: (https://accesibilidadweb.dlsi.ua.es/?menu=pautas-2.2)
